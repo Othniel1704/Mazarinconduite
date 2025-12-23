@@ -2,13 +2,15 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
+import Image from "next/image";
+import { Menu, X, ChevronDown, Phone, CarFront } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { ThemeToggleButton } from "./ThemeToggleButton";
+import { siteConfig } from "@/config/siteConfig";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,7 +24,7 @@ const mainItems = [
   { href: "/formations-tarifs", label: "Formules" },
   { href: "/courses", label: "Formation" },
   { href: "/testimonials", label: "Avis" },
-  { href: "/code-de-la-route",label: "code"},
+  { href: "/code-de-la-route", label: "code" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -31,33 +33,13 @@ const moreItems = [
   { href: "/engagements", label: "Nos Engagements" },
   { href: "/faq", label: "FAQ" },
   { href: "/news", label: "Actualités" },
-  
+
 ];
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    return (
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="max-w-7xl mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
-          <Link href="/" className="flex items-center gap-2">
-            <img src="/images/logo.png" alt="logo" className="h-7 w-7" />
-            <span className="text-lg font-bold text-primary">NB AUTO ÉCOLE</span>
-          </Link>
-          <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" className="h-9 w-9 md:h-10 md:w-10" disabled />
-          </div>
-        </div>
-      </header>
-    );
-  }
 
   const NavLinks = ({ mobile = false }: { mobile?: boolean }) => (
     <nav className={cn("flex items-center gap-1 lg:gap-2", mobile ? "flex-col space-y-4 pt-6" : "hidden md:flex")}>
@@ -102,24 +84,26 @@ export function Navbar() {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="max-w-7xl mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2 flex-shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
-          <img src="/images/logo.png" alt="logo" className="h-9 w-9" />
-          <span className="text-lg font-bold text-primary hidden sm:inline">NB AUTO ÉCOLE</span>
+    <header className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+      <div className="w-full max-w-7xl h-16 pointer-events-auto rounded-2xl border border-white/10 bg-background/70 backdrop-blur-xl shadow-2xl flex items-center justify-between px-4 sm:px-6">
+        <Link href="/" className="flex items-center gap-3 flex-shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
+          <Image src="/images/mc-f-logo-shiny.png" alt="Logo MC&F" width={64} height={64} className="object-contain" />
+          <div className="hidden sm:flex flex-col leading-none">
+            <span className="text-base font-black text-foreground tracking-tight">AUTO-ÉCOLE MAZARIN</span>
+            <span className="text-[11px] font-black text-primary tracking-[0.12em]">CONDUITE & FORMATION</span>
+          </div>
         </Link>
 
-        <div className="hidden md:flex items-center gap-2 flex-nowrap">
+        <div className="hidden md:flex items-center gap-4 lg:gap-6 flex-nowrap">
           <NavLinks />
-          <Button 
-            asChild 
-            variant="default" 
-            size="sm" 
-            className="ml-2 whitespace-nowrap px-3"
-          >
-            <Link href="https://auto-ecole.codesrousseau.fr/connexion">Espace élève</Link>
-          </Button>
-          <ThemeToggleButton />
+          <div className="flex items-center gap-2 border-l pl-4 border-border">
+            <a href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`} className="flex items-center gap-2 text-sm font-semibold hover:text-primary transition-colors whitespace-nowrap">
+              <Phone className="h-4 w-4" />
+              {siteConfig.contact.phone}
+            </a>
+
+            <ThemeToggleButton />
+          </div>
         </div>
 
         <div className="flex items-center md:hidden gap-1">
@@ -135,8 +119,11 @@ export function Navbar() {
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center p-4 border-b">
                   <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-                    <img src="/images/logo.png" alt="logo" className="h-6 w-6" />
-                    <span className="text-lg font-bold text-primary">NB AUTO ÉCOLE</span>
+                    <Image src="/images/mc-f-logo-shiny.png" alt="Logo MC&F" width={40} height={40} className="object-contain" />
+                    <div className="flex flex-col leading-none">
+                      <span className="text-[11px] font-black text-foreground tracking-tight">AUTO-ÉCOLE MAZARIN</span>
+                      <span className="text-[8px] font-black text-primary tracking-[0.1em]">CONDUITE & FORMATION</span>
+                    </div>
                   </Link>
                   <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
                     <X className="h-6 w-6" />
@@ -145,18 +132,12 @@ export function Navbar() {
                 </div>
                 <div className="p-4 flex flex-col flex-grow gap-4">
                   <NavLinks mobile />
-                  <Button 
-                    asChild 
-                    variant="default" 
+                  <Button
+                    asChild
+                    variant="default"
                     className="mt-auto w-full"
                     size="lg"
                   >
-                    <Link 
-                      href="https://auto-ecole.codesrousseau.fr/connexion" 
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      Espace élève
-                    </Link>
                   </Button>
                 </div>
               </div>

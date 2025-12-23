@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
       console.error('Recipient or sender email not configured in .env');
       return NextResponse.json({ message: 'Server configuration error.' }, { status: 500 });
     }
-    
+
 
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -28,12 +28,12 @@ export async function POST(request: NextRequest) {
         pass: process.env.EMAIL_APP_PASSWORD,
       },
     });
-    
+
     const mailOptions = {
       from: `"${name}" <${senderEmail}>`,
       replyTo: email,
       to: recipientEmail,
-      subject: `Nouveau message de contact de ${name} (NB Auto École)`,
+      subject: `Nouveau message de contact de ${name} (Mazarin Conduite)`,
       html: `
         <p><strong>Nom:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
@@ -43,15 +43,15 @@ export async function POST(request: NextRequest) {
         <p>${message.replace(/\n/g, '<br>')}</p>
       `,
     };
-    
+
     await transporter.sendMail(mailOptions);
-    
+
     // Simulate email sending for now
     console.log('Simulating email sending...');
     console.log('To:', recipientEmail);
     console.log('From:', senderEmail);
     console.log('Reply-To:', email);
-    console.log('Subject:', `Nouveau message de contact de ${name} (NB Auto École)`);
+    console.log('Subject:', `Nouveau message de contact de ${name} (Mazarin Conduite)`);
     console.log('Body:', { name, email, phone, courseInterest, message });
     await new Promise(resolve => setTimeout(resolve, 1000));
     // ------------ End of TODO section ------------

@@ -1,246 +1,222 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Button} from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { ArrowRight, CheckCircle, Users, Award, MessageSquare, MapPin, Phone, Mail, Clock, Car, ShieldCheck, TrendingUp, BookOpen, Smile, CreditCard, Accessibility, CalendarClock, Presentation, Star } from "lucide-react";
+import { ArrowRight, CheckCircle, Users, Award, MapPin, Phone, Mail, Clock, Car, ShieldCheck, TrendingUp, BookOpen, CalendarClock, Presentation, Star } from "lucide-react";
 import { HeroSection } from "@/components/ui/hero-section";
 import { SectionTitle } from "@/components/ui/section-title";
+import { SectionDivider } from "@/components/ui/section-divider";
 import { cn } from "@/lib/utils";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background overflow-x-hidden">
       <div className="relative">
         <HeroSection
-          title="NB AUTO ÉCOLE DE LA MAIRIE"
-          subtitle="Votre partenaire pour la réussite de votre permis de conduire à Vigneux-sur-Seine."
+          title="MAZARIN CONDUITE & FORMATION"
+          subtitle="Auto école et centre de formation : au-delà de l'apprentissage, nous forgeons votre indépendance à Chilly-Mazarin."
           imageUrl="https://images.pexels.com/photos/7015865/pexels-photo-7015865.jpeg"
-          imageAlt="Panneau de signalisation routière"
-          imageHint="traffic signs"
+          imageAlt="Formation à la conduite"
           ctaText="Découvrir nos formations"
           ctaLink="/formations-tarifs"
         />
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-          <Image
-            src="https://images.pexels.com/photos/5644439/pexels-photo-5644439.jpeg"
-            alt="Feu tricolore"
-            width={150}
-            height={300}
-            className="absolute top-20 right-10 opacity-60 animate-pulse"
-          />
-          <Image
-            src="https://images.pexels.com/photos/4391480/pexels-photo-4391480.jpeg"
-            alt="Panneau Stop"
-            width={100}
-            height={100}
-            className="absolute bottom-20 left-10 opacity-60 rotate-12"
-          />
-        </div>
       </div>
 
-      <section id="formations" className="py-16 md:py-24 bg-secondary relative overflow-hidden">
-        <div className="container mx-auto px-4 animate-fade-in-up">
-          <SectionTitle
-            title="Nos Formations Phares"
-            subtitle="Des programmes adaptés à vos besoins pour apprendre à conduire en toute confiance."
-            centered
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { 
-                title: "Permis B",
-                description: "La formation classique pour votre permis voiture.",
-                icon: <Car className="h-12 w-12 text-primary mb-4" />,
-                link: "/formations-tarifs#permis-b",
-                image: "https://images.pexels.com/photos/13861/IMG_3496bfree.jpg"
-              },
-              {
-                title: "Conduite Accompagnée",
-                description: "Une expérience progressive dès 15 ans.",
-                icon: <Users className="h-12 w-12 text-primary mb-4" />,
-                link: "/formations-tarifs#conduite-accompagnee",
-                image: "https://images.pexels.com/photos/7433835/pexels-photo-7433835.jpeg"
-              },
-              {
-                title: "Permis Boîte Auto",
-                description: "Apprentissage simplifié sur véhicule automatique.",
-                icon: <ShieldCheck className="h-12 w-12 text-primary mb-4" />,
-                link: "/formations-tarifs#permis-b",
-                image: "https://images.pexels.com/photos/97079/pexels-photo-97079.jpeg"
-              },
-            ].map((service, index) => (
-              <Card
-                key={service.title}
-                className={cn(
-                  "text-center hover-card-effect group image-hover-zoom",
-                  "animate-fade-in-up",
-                  index === 0 && "animation-delay-200ms",
-                  index === 1 && "animation-delay-400ms",
-                  index === 2 && "animation-delay-600ms"
-                )}
-              >
-                <div className="relative h-48 w-full overflow-hidden rounded-t-lg">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                <CardHeader className="items-center">
-                  {service.icon}
-                  <CardTitle className="text-xl group-hover:text-primary md:text-2xl transition-colors">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="mb-4 h-12">{service.description}</CardDescription>
-                  <Button asChild variant="link" className="text-primary hover:text-primary/80">
-                    <Link href={service.link}>Détails <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+      <section id="notre-auto-ecole" className="relative py-24 md:py-32 overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 animate-fade-in-up">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider mb-6">
+                20 Ans d&apos;Expertise
+              </span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight">
+                Une Pédagogie <span className="text-primary italic">Signature</span>
+              </h2>
+              <div className="prose prose-xl dark:prose-invert max-w-none text-muted-foreground leading-relaxed space-y-6">
+                <p>
+                  Forte d&apos;une expérience de 20 ans dans la formation à la conduite, <strong>MAZARIN CONDUITE & FORMATION</strong> n&apos;est pas qu&apos;une simple auto-école. C&apos;est un engagement pour votre réussite et votre sécurité.
+                </p>
+                <p>
+                  Nous vous accueillons au cœur de Chilly-Mazarin dans des locaux pensés pour l&apos;apprentissage moderne. Notre approche pédagogique personnalisée transforme chaque heure de conduite en une étape vers votre totale autonomie.
+                </p>
+              </div>
+            </div>
+            <div className="lg:col-span-5 relative group animate-fade-in-up animation-delay-400ms">
+              <div className="relative z-10 rounded-[3rem] overflow-hidden rotate-3 group-hover:rotate-0 transition-transform duration-700 shadow-2xl">
+                <Image
+                  src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg"
+                  alt="Mazarin Driving Experience"
+                  width={600}
+                  height={800}
+                  className="object-cover h-[500px]"
+                />
+              </div>
+              <div className="absolute -inset-4 border-2 border-dashed border-primary/20 rounded-[3rem] -z-10 -rotate-3 group-hover:rotate-0 transition-transform duration-700" />
+            </div>
           </div>
-          <div className="text-center mt-12 animate-fade-in-up animation-delay-800ms">
-            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-              <Link href="/formations-tarifs">Voir toutes nos formations et tarifs</Link>
-            </Button>
-          </div>
-        </div>
-        <div className="absolute -right-20 top-10 opacity-10">
-          <Image
-            src="https://images.pexels.com/photos/5644439/pexels-photo-5644439.jpeg"
-            alt="Feu tricolore décoratif"
-            width={300}
-            height={600}
-            className="rotate-12"
-          />
-        </div>
-        <div className="absolute -left-20 bottom-10 opacity-10">
-          <Image
-            src="https://images.pexels.com/photos/4391480/pexels-photo-4391480.jpeg"
-            alt="Panneau Stop décoratif"
-            width={200}
-            height={200}
-            className="-rotate-12"
-          />
         </div>
       </section>
 
-      <section id="avantages" className="py-16 md:py-24 bg-background relative">
-        <div className="container mx-auto px-4 animate-fade-in-up">
+      <section id="avantages" className="relative py-24 md:py-32 bg-secondary/30">
+        <SectionDivider color="hsl(var(--background))" direction="up" />
+        <div className="container mx-auto px-4 relative z-10">
           <SectionTitle
-            title="Pourquoi Choisir NB AUTO ÉCOLE ?"
-            subtitle="Nous nous engageons à vous offrir une expérience d'apprentissage de qualité supérieure."
+            title="L'Excellence Mazarin"
+            subtitle="Pourquoi plus de 1000 élèves nous font confiance chaque année."
             centered
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          {/* Asymmetric Bento Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6 md:grid-rows-2">
             {[
-              { title: "Certification Qualiopi", description: "Gage de notre engagement pour une formation de qualité, auditée et reconnue.", icon: <Award className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Moniteurs Experts", description: "Une équipe de moniteurs diplômés d'État, patients et pédagogues, dédiés à votre succès.", icon: <Users className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Suivi Personnalisé", description: "Un accompagnement sur mesure, adapté à votre rythme et à vos besoins spécifiques.", icon: <CheckCircle className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Objectif Réussite Élevé", description: "Nos méthodes éprouvées visent à maximiser vos chances de succès aux examens.", icon: <TrendingUp className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Véhicules Modernes", description: "Apprenez à conduire sur des véhicules récents, sécurisés et bien entretenus.", icon: <Car className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Pédagogie Positive", description: "Un environnement d'apprentissage bienveillant pour progresser en toute confiance.", icon: <Smile className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Facilités de Paiement", description: "Plusieurs options de paiement pour s'adapter à votre budget.", icon: <CreditCard className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Accès Facile", description: "Parking à proximité et bien desservi par les transports en commun.",  icon: <MapPin className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Horaires Flexibles", description: "Des horaires d'ouverture étendus et des leçons adaptables à vos disponibilités.", icon: <CalendarClock className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Salle de Code Moderne", description: "Un espace dédié et équipé des derniers outils pour l'apprentissage du code.", icon: <Presentation className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Label École Qualité", description: "Reconnue pour la qualité de son enseignement et ses services.", icon: <Star className="h-12 w-12 text-primary mb-4" /> },
+              {
+                title: "Qualiopi",
+                desc: "Certification d'État garantissant une formation de haute qualité.",
+                icon: <Award className="h-10 w-10 text-primary" />,
+                span: "md:col-span-2 md:row-span-2"
+              },
+              {
+                title: "Experts Diplômés",
+                desc: "Moniteurs passionnés et patients.",
+                icon: <Users className="h-10 w-10 text-primary" />,
+                span: "md:col-span-2 md:row-span-1"
+              },
+              {
+                title: "Modernité",
+                desc: "Véhicules récents et connectés.",
+                icon: <Car className="h-10 w-10 text-primary" />,
+                span: "md:col-span-2 md:row-span-1"
+              },
+              {
+                title: "Flexibilité",
+                desc: "Plannings adaptés à votre vie active.",
+                icon: <CalendarClock className="h-10 w-10 text-primary" />,
+                span: "md:col-span-2 md:row-span-1"
+              },
+              {
+                title: "Espace Code",
+                desc: "Salle équipée des derniers logiciels Rousseau.",
+                icon: <Presentation className="h-10 w-10 text-primary" />,
+                span: "md:col-span-2 md:row-span-1"
+              }
             ].map((avantage, index) => (
               <Card
                 key={avantage.title}
                 className={cn(
-                  "text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out group",
+                  "hover-card-effect border-white/5 bg-card/50 backdrop-blur pb-6",
+                  avantage.span,
                   "animate-fade-in-up",
-                  `animation-delay-${(index % 3) * 200}ms`
+                  `animation-delay-${index * 150}ms`
                 )}
               >
-                <CardHeader className="items-center">
-                  {avantage.icon}
-                  <CardTitle className="text-xl group-hover:text-primary md:text-2xl transition-colors">{avantage.title}</CardTitle>
+                <CardHeader>
+                  <div className="p-3 w-fit bg-primary/5 rounded-2xl mb-4">
+                    {avantage.icon}
+                  </div>
+                  <CardTitle className="text-2xl">{avantage.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription>{avantage.description}</CardDescription>
+                  <CardDescription className="text-base text-muted-foreground">{avantage.desc}</CardDescription>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
-        <div className="absolute right-5 bottom-5 opacity-10">
-          <Image
-            src="https://images.pexels.com/photos/5644439/pexels-photo-5644439.jpeg"
-            alt="Feu tricolore décoratif"
-            width={200}
-            height={400}
-            className="rotate-45"
-          />
+        <SectionDivider color="hsl(var(--background))" direction="down" />
+      </section>
+
+      <section id="partenaires" className="py-20 overflow-hidden bg-background">
+        <div className="container mx-auto px-4 text-center mb-12">
+          <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground/60">Organismes Partenaires & Certifications</p>
+        </div>
+        <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 hover:opacity-100 transition-opacity duration-700 grayscale hover:grayscale-0">
+          {[
+            { name: "Qualiopi", url: "/images/LogoQualiopi.png" },
+            { name: "France Travail", url: "/images/logo-france-travail.png" },
+            { name: "CPF", url: "/images/Logo-Mon-Compte-Formation-Appli-CPF.jpg" },
+            { name: "Région Île-de-France", url: "/images/logo.jpg" },
+            { name: "Sécurité Routière", url: "/images/logo_ecole_de_conduite_qualité.png" }
+          ].map((partner) => (
+            <img key={partner.name} src={partner.url} alt={partner.name} className="h-10 md:h-14 w-auto object-contain" />
+          ))}
         </div>
       </section>
 
-      <section id="contact" className="py-16 md:py-24 bg-primary text-primary-foreground relative">
-        <div className="container mx-auto px-4 text-center animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Prêt à prendre la route ?</h2>
-          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-            Contactez-nous dès aujourd&apos;hui pour discuter de vos besoins et commencer votre formation à la conduite.
-          </p>
-          <Button asChild size="lg" variant="secondary" className="bg-secondary hover:gray /90 text-primary-foreground">
-            <Link href="/contact">Nous contacter</Link>
-          </Button>
-
-          <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
-            <Card className="bg-card text-card-foreground hover:-translate-y-1 transition-all duration-300 ease-in-out animate-fade-in-up animation-delay-200ms">
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg md:text-xl"><MapPin className="mr-2 h-5 w-5 text-primary"/>Coordonnées</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2 text-sm text-muted-foreground">
-                <p className="flex items-center"><MapPin className="mr-2 h-4 w-4 opacity-75"/>50 B Rue Pierre Marin, 91270 Vigneux-sur-Seine</p>
-                <p className="flex items-center"><Phone className="mr-2 h-4 w-4 opacity-75"/>01.69.56.10.70</p>
-                <p className="flex items-center"><Mail className="mr-2 h-4 w-4 opacity-75"/>nbcontact.conduite@gmail.com</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-card text-card-foreground hover:-translate-y-1 transition-all duration-300 ease-in-out animate-fade-in-up animation-delay-400ms">
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg md:text-xl"><Clock className="mr-2 h-5 w-5 text-primary"/>Horaires Bureau</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-1 text-xs text-muted-foreground">
-                <p>Lundi : 09h-12h, 14h-19h</p>
-                <p>Mardi : 09h-12h, 14h-19h</p>
-                <p>Mercredi : 09h-12h, 14h-19h</p>
-                <p>Jeudi : 09h-12h, 14h-19h</p>
-                <p>Vendredi : 09h-12h, 14h-19h</p>
-                <p>Samedi : 09h-16h</p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="mt-12 md:mt-16 animate-fade-in-up animation-delay-600ms">
-            <h3 className="text-2xl md:text-3xl font-bold mb-6">Où nous trouver ?</h3>
-            <div className="aspect-video w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-2xl">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2633.300281555901!2d2.414217276348222!3d48.69974127131108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6750b252a14eb%3A0x8108fcf2a0598b66!2sNb%20auto%20%C3%A9cole%20de%20la%20mairie!5e0!3m2!1sfr!2sfr!4v1747643808019!5m2!1sfr!2sfr"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Carte de localisation NB Auto École de la Mairie"
-              ></iframe>
-            </div>
-            <div className="mt-8 text-center">
-              <Link href="https://auto-ecole.codesrousseau.fr/connexion" target="_blank" rel="noopener noreferrer" className="text-lg underline hover:no-underline hover:text-accent-foreground transition-colors">Accès à l&apos;Espace Élève Codes Rousseau</Link>
-            </div>
+      <section id="formation-professionnelle" className="relative py-24 md:py-32 bg-primary/5">
+        <div className="container mx-auto px-4 relative z-10 animate-fade-in-up">
+          <SectionTitle
+            title="Formation Professionnelle"
+            subtitle="Propulsez votre carrière avec nos modules certifiés."
+            centered
+          />
+          <div className="flex flex-wrap justify-center gap-8">
+            {[
+              { title: "SST", desc: "Sauveteur Secouriste (2j)", icon: <ShieldCheck className="h-8 w-8" /> },
+              { title: "FIMO", desc: "Module Formateur", icon: <BookOpen className="h-8 w-8" /> },
+              { title: "Habilitation", desc: "Risques Électriques", icon: <Presentation className="h-8 w-8" /> }
+            ].map((formation, index) => (
+              <div
+                key={formation.title}
+                className={cn(
+                  "p-8 rounded-[2rem] bg-card border border-white/5 shadow-xl hover:-translate-y-4 transition-all duration-500 w-full max-w-[300px] text-center",
+                  "animate-fade-in-up",
+                  `animation-delay-${index * 100}ms`
+                )}
+              >
+                <div className="mx-auto w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center mb-6 shadow-lg shadow-primary/30">
+                  {formation.icon}
+                </div>
+                <h4 className="text-2xl font-black mb-2">{formation.title}</h4>
+                <p className="text-muted-foreground">{formation.desc}</p>
+                <Button variant="link" className="mt-4 text-primary p-0">Détails <ArrowRight className="ml-2 h-4 w-4" /></Button>
+              </div>
+            ))}
           </div>
         </div>
-        <div className="absolute left-5 top-5 opacity-10">
-          <Image
-            src="https://images.pexels.com/photos/4391480/pexels-photo-4391480.jpeg"
-            alt="Panneau Stop décoratif"
-            width={150}
-            height={150}
-            className="-rotate-12"
-          />
+      </section>
+
+      <section id="contact" className="py-24 md:py-32 bg-background relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -z-10" />
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-5xl md:text-7xl font-black mb-8 leading-none tracking-tighter">
+            Prêt à <span className="text-primary italic underline decoration-wavy decoration-primary/20 underline-offset-8">Démarrer</span> ?
+          </h2>
+          <p className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto text-muted-foreground leading-relaxed">
+            Un projet, une question ? Nos experts sont là pour vous accompagner vers votre future indépendance.
+          </p>
+          <div className="flex flex-wrap justify-center gap-6 mb-24">
+            <Button asChild size="lg" className="h-16 px-12 text-xl rounded-full font-bold shadow-2xl shadow-primary/30">
+              <Link href="/contact">Nous Contacter</Link>
+            </Button>
+            <div className="flex items-center gap-4 px-8 border-l border-white/10 text-left">
+              <div className="p-3 bg-primary/10 rounded-xl text-primary"><Phone className="h-6 w-6" /></div>
+              <div>
+                <p className="text-xs font-bold text-muted-foreground uppercase opacity-60">Ligne Directe</p>
+                <p className="text-xl font-black">01 69 56 10 70</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+            <Card className="rounded-[2.5rem] bg-secondary/30 backdrop-blur-xl border-white/5 p-4 hover:border-primary/20 transition-colors">
+              <CardHeader>
+                <CardTitle className="flex items-center text-2xl font-black"><Clock className="mr-3 h-6 w-6 text-primary" />Horaires</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-lg text-muted-foreground">
+                <p>Lundi - Vendredi : 09h - 19h</p>
+                <p>Samedi : 09h - 16h</p>
+              </CardContent>
+            </Card>
+            <Card className="rounded-[2.5rem] bg-secondary/30 backdrop-blur-xl border-white/5 p-4 hover:border-primary/20 transition-colors">
+              <CardHeader>
+                <CardTitle className="flex items-center text-2xl font-black"><MapPin className="mr-3 h-6 w-6 text-primary" />Lieu</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-lg text-muted-foreground">
+                <p>Chilly-Mazarin, France</p>
+                <Button variant="outline" className="rounded-full border-primary/20">Voir sur Google Maps</Button>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
     </div>

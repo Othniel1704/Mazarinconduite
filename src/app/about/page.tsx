@@ -3,13 +3,14 @@ import { SectionTitle } from "@/components/ui/section-title";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, Target, Building, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/config/siteConfig";
 
 export default function AboutPage() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <SectionTitle
-        title="À Propos de NB AUTO ÉCOLE DE LA MAIRIE"
-        subtitle="Votre partenaire de confiance pour l'apprentissage de la conduite à Vigneux-sur-Seine."
+        title={`À Propos de ${siteConfig.shortName}`}
+        subtitle={`Votre partenaire de confiance pour l'apprentissage de la conduite à ${siteConfig.contact.address.split(',')[0]}.`}
         centered
       />
 
@@ -17,7 +18,7 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <Image
             src="https://images.pexels.com/photos/3803162/pexels-photo-3803162.jpeg"
-            alt="Locaux de NB Auto École de la Mairie"
+            alt={`Locaux de ${siteConfig.name}`}
             width={700}
             height={500}
             className="rounded-lg shadow-xl"
@@ -26,7 +27,7 @@ export default function AboutPage() {
           <div>
             <h3 className="text-2xl font-semibold text-foreground mb-4">Notre Histoire</h3>
             <p className="text-muted-foreground mb-4">
-              Fondée en Octobre 2024, NB AUTO ÉCOLE DE LA MAIRIE est née de la passion pour l&apos;enseignement de la conduite et du désir d&apos;offrir une formation de qualité supérieure. Située au cœur de Vigneux-sur-Seine, notre auto-école s&apos;engage à former des conducteurs responsables et compétents.
+              Forte de 20 ans d&apos;expertise, <strong>{siteConfig.name}</strong> est née de la passion pour l&apos;enseignement de la conduite et du désir d&apos;offrir une formation de qualité supérieure. Située au cœur de Chilly-Mazarin, notre auto-école s&apos;engage à former des conducteurs responsables et compétents.
             </p>
             <p className="text-muted-foreground">
               Nous sommes fiers de notre approche pédagogique moderne, de nos installations accueillantes et de nos véhicules récents, assurant une expérience d&apos;apprentissage optimale pour tous nos élèves.
@@ -74,11 +75,11 @@ export default function AboutPage() {
               <Building className="h-6 w-6 mr-2 text-primary" /> Nos Locaux
             </h3>
             <p className="text-muted-foreground mb-4">
-              Notre auto-école, située au <strong> 50 B Rue Pierre Marin, 91270 Vigneux-sur-Seine</strong>, vous accueille dans des locaux modernes et climatisés. Nous disposons de salles de code équipées des derniers outils pédagogiques pour un apprentissage interactif et efficace.
+              Notre auto-école, située à <strong>{siteConfig.contact.address}</strong>, vous accueille dans des locaux modernes et climatisés. Nous disposons de salles de code équipées des derniers outils pédagogiques pour un apprentissage interactif et efficace.
             </p>
             <Image
               src="/images/IMG_3339.jpeg"
-              alt="Salle de code NB Auto École"
+              alt={`Salle de code ${siteConfig.shortName}`}
               width={600}
               height={400}
               className="rounded-lg shadow-md mb-4"
@@ -94,7 +95,7 @@ export default function AboutPage() {
             </p>
             <Image
               src="https://placehold.co/600x400.png"
-              alt="Véhicules de NB Auto École"
+              alt={`Véhicules de ${siteConfig.name}`}
               width={600}
               height={400}
               className="rounded-lg shadow-md"

@@ -28,82 +28,65 @@ export function HeroSection({
   children,
 }: HeroSectionProps) {
   return (
-    <section className="relative bg-secondary text-secondary-foreground py-16 md:py-24 lg:py-32 overflow-hidden">
-      {imageUrl && (
-        <Image
-          src={imageUrl}
-          alt={imageAlt}
-          layout="fill"
-          objectFit="cover"
-          className="opacity-85 hero-bg-image-animate"
-          data-ai-hint={imageHint}
-          priority
-        />
-      )}
-      
-      {/* Animated Traffic Light */}
-      <div className="absolute top-10 right-10 hidden lg:block animate-float">
-        <div className="traffic-light">
-          <div className="traffic-light-lamp traffic-light-red"></div>
-          <div className="traffic-light-lamp traffic-light-yellow"></div>
-          <div className="traffic-light-lamp traffic-light-green"></div>
-        </div>
-      </div>
+    <section className="relative min-h-[90vh] flex items-center pt-32 pb-16 overflow-hidden">
+      {/* Abstract Background Elements */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -skew-x-12 transform origin-top-right hidden lg:block" />
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" />
 
-      {/* Animated Road Signs */}
-      <div className="absolute left-10 top-1/4 hidden lg:block">
-        <div className="road-sign animate-bounce-slow">
-          <Image
-            src="https://images.pexels.com/photos/5644439/pexels-photo-5644439.jpeg"
-            alt="Stop Sign"
-            width={80}
-            height={80}
-            className="rounded-lg shadow-lg"
-          />
-        </div>
-      </div>
-
-      {/* Moving Car */}
-      <div className="absolute bottom-10 w-full overflow-hidden">
-        <div className="moving-car">
-          <Image
-            src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg"
-            alt="Car"
-            width={100}
-            height={60}
-            className="object-contain"
-          />
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10 text-center">
-        <h1 className={cn(
-          "text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-primary",
-          "animate-fade-in-up"
-        )}>
-          {title}
-        </h1>
-        {subtitle && (
-          <p className={cn(
-            "text-lg md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto",
-            "animate-fade-in-up animation-delay-200ms"
-          )}>
-            {subtitle}
-          </p>
-        )}
-        {ctaText && ctaLink && (
-          <Button asChild size="lg" className={cn(
-            "animate-fade-in-up animation-delay-400ms button-hover-effect",
-            "bg-primary hover:bg-primary/90 text-primary-foreground"
-          )}>
-            <Link href={ctaLink}>{ctaText}</Link>
-          </Button>
-        )}
-        {children && (
-          <div className={cn("mt-8", "animate-fade-in-up animation-delay-600ms")}>
-            {children}
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="text-left">
+            <h1 className={cn(
+              "text-5xl md:text-6xl lg:text-8xl font-black mb-8 leading-[0.9] tracking-tighter",
+              "animate-fade-in-up"
+            )}>
+              <span className="text-foreground">MAZARIN</span><br />
+              <span className="text-primary font-outline-2">CONDUITE</span>
+            </h1>
+            {subtitle && (
+              <p className={cn(
+                "text-xl md:text-2xl mb-10 max-w-xl text-muted-foreground font-medium",
+                "animate-fade-in-up animation-delay-200ms"
+              )}>
+                {subtitle}
+              </p>
+            )}
+            {ctaText && ctaLink && (
+              <div className="flex flex-wrap gap-4 animate-fade-in-up animation-delay-400ms">
+                <Button asChild size="lg" className="h-14 px-8 text-lg rounded-full font-bold shadow-xl shadow-primary/20 transition-all hover:scale-105">
+                  <Link href={ctaLink}>{ctaText}</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="h-14 px-8 text-lg rounded-full border-primary/20 hover:bg-primary/5">
+                  <Link href="#notre-auto-ecole">En savoir plus</Link>
+                </Button>
+              </div>
+            )}
+            {children && (
+              <div className={cn("mt-12", "animate-fade-in-up animation-delay-600ms")}>
+                {children}
+              </div>
+            )}
           </div>
-        )}
+
+          <div className="relative group perspective-1000 hidden lg:block">
+            <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl transition-transform duration-700 group-hover:rotate-y-6 group-hover:rotate-x-2">
+              {imageUrl && (
+                <Image
+                  src={imageUrl}
+                  alt={imageAlt}
+                  width={800}
+                  height={1000}
+                  className="object-cover hero-bg-image-animate"
+                  data-ai-hint={imageHint}
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              )}
+            </div>
+            {/* Geometric Accent */}
+            <div className="absolute -inset-4 border-2 border-primary/30 rounded-3xl -z-10 translate-x-4 translate-y-4 transition-transform duration-700 group-hover:translate-x-2 group-hover:translate-y-2" />
+          </div>
+        </div>
       </div>
 
       <style jsx>{`
