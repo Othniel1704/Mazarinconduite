@@ -6,9 +6,47 @@ import { ArrowRight, CheckCircle, Users, Award, MapPin, Phone, Mail, Clock, Car,
 import { HeroSection } from "@/components/ui/hero-section";
 import { SectionTitle } from "@/components/ui/section-title";
 import { SectionDivider } from "@/components/ui/section-divider";
+import { TestimonialCard, type Testimonial } from "@/components/TestimonialCard";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 
 export default function HomePage() {
+  const testimonials: Testimonial[] = [
+    {
+      name: "Thomas D.",
+      text: "Formation au top ! J'ai eu mon permis du premier coup grâce à la patience de mon moniteur. L'équipe est super sympa et à l'écoute.",
+      rating: 5,
+      course: "Permis B"
+    },
+    {
+      name: "Sarah L.",
+      text: "Le code en accéléré m'a permis de tout valider en 2 semaines. Les explications en salle sont vraiment utiles par rapport aux applis seules.",
+      rating: 5,
+      course: "Code de la route"
+    },
+    {
+      name: "Mehdi K.",
+      text: "Conduite accompagnée faite ici. Le suivi pédagogique est sérieux et on se sent vraiment prêt pour l'examen. Je recommande !",
+      rating: 5,
+      course: "AAC"
+    }
+  ];
+
+  const faqData = [
+    {
+      question: "Quels documents pour l'inscription ?",
+      answer: "Pièce d'identité, photos ANTS, justificatif de domicile (-6 mois) et attestation JDC/recensement."
+    },
+    {
+      question: "Combien de temps dure la formation ?",
+      answer: "Minimum légal de 20h (13h en boîte auto). En moyenne, comptez 25-35h selon votre progression."
+    },
+    {
+      question: "Proposez-vous le paiement en plusieurs fois ?",
+      answer: "Oui, nous acceptons le paiement en 3 ou 4 fois sans frais, ainsi que le financement CPF et France Travail."
+    }
+  ];
+
   return (
     <div className="flex flex-col min-h-screen bg-background overflow-x-hidden">
       <div className="relative">
@@ -123,6 +161,54 @@ export default function HomePage() {
           </div>
         </div>
         <SectionDivider color="hsl(var(--background))" direction="down" />
+      </section>
+
+      <section id="temoignages" className="py-24 md:py-32 bg-background relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <SectionTitle
+            title="Avis de nos Élèves"
+            subtitle="Ils ont passé leur permis avec nous. Voici ce qu'ils en pensent."
+            centered
+          />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            {testimonials.map((t, i) => (
+              <div key={i} className="animate-fade-in-up" style={{ animationDelay: `${i * 150}ms` }}>
+                <TestimonialCard testimonial={t} />
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+             <Button variant="outline" className="rounded-full" asChild>
+                <a href="https://g.page/r/C..." target="_blank" rel="noopener noreferrer">Voir plus d'avis sur Google</a>
+             </Button>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq-home" className="py-24 md:py-32 bg-secondary/30">
+        <div className="container mx-auto px-4">
+           <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div>
+                <h3 className="text-4xl font-black mb-6">Questions Fréquentes</h3>
+                <p className="text-xl text-muted-foreground mb-8">
+                  Vous avez des interrogations avant de vous lancer ? Voici les réponses aux questions les plus courantes.
+                </p>
+                <Button asChild>
+                  <Link href="/faq">Voir toute la FAQ</Link>
+                </Button>
+              </div>
+              <div>
+                <Accordion type="single" collapsible className="w-full">
+                  {faqData.map((item, index) => (
+                    <AccordionItem value={`item-${index}`} key={index}>
+                      <AccordionTrigger className="text-left font-semibold">{item.question}</AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">{item.answer}</AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+           </div>
+        </div>
       </section>
 
       <section id="partenaires" className="py-20 overflow-hidden bg-background">
