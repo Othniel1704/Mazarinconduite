@@ -35,8 +35,9 @@ const FormationsTarifsPage: React.FC = () => {
     <div className="bg-background min-h-screen overflow-x-hidden">
       <HeroSection
         title="NOS FORMATIONS"
-        subtitle="De l'apprentissage classique à la formation professionnelle, découvrez l'excellence Mazarin."
-        imageUrl="https://images.pexels.com/photos/7015865/pexels-photo-7015865.jpeg"
+        subtitle="Du Permis B à la Conduite Accompagnée : l'excellence de la formation à Chilly-Mazarin pour votre réussite."
+        imageUrl="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1920&q=80"
+        imageAlt="Véhicule d'auto-école Fiat 500"
       />
 
       <section id="main-formations" className="relative py-24 md:py-32">

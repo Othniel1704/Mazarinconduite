@@ -14,9 +14,9 @@ export default function HomePage() {
       <div className="relative">
         <HeroSection
           title="MAZARIN CONDUITE & FORMATION"
-          subtitle="Votre auto-école à Chilly-Mazarin pour le permis de conduire, la conduite accompagnée et le code de la route. Forgez votre indépendance dès aujourd'hui."
-          imageUrl="https://images.pexels.com/photos/7015865/pexels-photo-7015865.jpeg"
-          imageAlt="Formation à la conduite"
+          subtitle="Votre auto-école à Chilly-Mazarin : Permis de conduire, Conduite Accompagnée et Code de la route. Prenez le volant de votre avenir dès aujourd'hui."
+          imageUrl="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1920&q=80"
+          imageAlt="Conduite au coucher du soleil"
           ctaText="S'inscrire en ligne"
           ctaLink="/contact"
         />
@@ -27,25 +27,25 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 animate-fade-in-up">
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider mb-6">
-                20 Ans d&apos;Expertise
+                Expertise & Innovation
               </span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight">
-                Une Pédagogie <span className="text-primary italic">Signature</span>
+                Apprendre à conduire à <span className="text-primary italic">Chilly-Mazarin</span>
               </h2>
               <div className="prose prose-xl dark:prose-invert max-w-none text-muted-foreground leading-relaxed space-y-6">
                 <p>
-                  Forte d&apos;une expérience de 20 ans dans la formation à la conduite, <strong>MAZARIN CONDUITE & FORMATION</strong> n&apos;est pas qu&apos;une simple auto-école. C&apos;est un engagement pour votre réussite et votre sécurité.
+                  Avec plus de <strong>20 ans d&apos;expérience</strong>, MAZARIN CONDUITE & FORMATION réinvente l&apos;apprentissage de la conduite. Notre mission ? Vous offrir bien plus qu&apos;un permis : une véritable éducation à la sécurité routière.
                 </p>
                 <p>
-                  Nous vous accueillons au cœur de Chilly-Mazarin dans des locaux pensés pour l&apos;apprentissage moderne. Notre approche pédagogique personnalisée transforme chaque heure de conduite en une étape vers votre totale autonomie.
+                  Situés au cœur de <strong>Chilly-Mazarin</strong>, nous vous accueillons dans un espace moderne et convivial. Que ce soit pour la <strong>conduite accompagnée</strong>, le <strong>permis B</strong> ou le <strong>code de la route</strong>, notre pédagogie sur-mesure s&apos;adapte à votre rythme pour garantir votre réussite.
                 </p>
               </div>
             </div>
             <div className="lg:col-span-5 relative group animate-fade-in-up animation-delay-400ms">
               <div className="relative z-10 rounded-[3rem] overflow-hidden rotate-3 group-hover:rotate-0 transition-transform duration-700 shadow-2xl">
                 <Image
-                  src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg"
-                  alt="Mazarin Driving Experience"
+                  src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80"
+                  alt="Véhicule auto-école moderne"
                   width={600}
                   height={800}
                   className="object-cover h-[500px]"

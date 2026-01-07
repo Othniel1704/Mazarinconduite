@@ -29,18 +29,18 @@ const CodeDeLaRoutePage: React.FC = () => {
   return (
     <>
       <HeroSection
-        title="Code de la Route"
-        subtitle="Formation théorique complète : maîtrisez le code de la route rapidement et réussissez votre examen du premier coup."
-        imageUrl="https://images.pexels.com/photos/314376/pexels-photo-314376.jpeg"
-        imageAlt="Panneaux de signalisation"
-        imageHint="traffic signs"
-        ctaText="S'inscrire au Code"
+        title="CODE DE LA ROUTE"
+        subtitle="Votre passeport pour la route commence ici. Apprentissage accéléré et réussite garantie à Chilly-Mazarin."
+        imageUrl="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1920&q=80"
+        imageAlt="Apprentissage du code de la route"
+        imageHint="student studying"
+        ctaText="Je commence maintenant"
         ctaLink="/contact"
       />
       <div className="container mx-auto px-4 py-12">
         <SectionTitle
-          title="Formation au Code de la Route"
-          subtitle="Une préparation complète pour réussir votre examen théorique"
+          title="Mettez toutes les chances de votre côté"
+          subtitle="Des outils modernes pour une formation théorique efficace."
           centered
         />
         
@@ -72,37 +72,31 @@ const CodeDeLaRoutePage: React.FC = () => {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="relative">
             <Image
-              src="https://images.pexels.com/photos/7433822/pexels-photo-7433822.jpeg"
-              alt="Apprentissage du code"
+              src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80"
+              alt="Séance de code à l'auto-école"
               width={600}
               height={400}
-              className="rounded-lg shadow-lg"
+              className="rounded-lg shadow-xl"
             />
-            <div className="absolute -bottom-4 -right-4 w-24 h-24">
-              <Image
-                src="https://images.pexels.com/photos/5644439/pexels-photo-5644439.jpeg"
-                alt="Feu tricolore décoratif"
-                width={96}
-                height={96}
-                className="rounded-full border-4 border-background"
-              />
-            </div>
           </div>
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold">Notre Méthode d'Apprentissage</h3>
-            <ul className="space-y-2 text-muted-foreground">
-              <li>• Cours en salle avec moniteur expérimenté</li>
-              <li>• Tests en ligne illimités</li>
-              <li>• Séries thématiques ciblées</li>
-              <li>• Suivi personnalisé de votre progression</li>
-              <li>• Correction détaillée de vos erreurs</li>
+          <div className="space-y-6">
+            <h3 className="text-3xl font-black">Notre Méthode Exclusive</h3>
+            <p className="text-lg text-muted-foreground">
+              À <strong>Chilly-Mazarin</strong>, nous combinons le meilleur de la technologie et de l'humain.
+              Nos moniteurs ne sont pas juste des correcteurs, ce sont des coachs dédiés à votre réussite.
+            </p>
+            <ul className="space-y-3 text-muted-foreground">
+              <li className="flex items-center"><span className="mr-2 text-primary">✔</span> Cours en salle interactifs</li>
+              <li className="flex items-center"><span className="mr-2 text-primary">✔</span> Accès 24/7 au Code en ligne</li>
+              <li className="flex items-center"><span className="mr-2 text-primary">✔</span> Suivi de progression en temps réel</li>
+              <li className="flex items-center"><span className="mr-2 text-primary">✔</span> Examens blancs en conditions réelles</li>
             </ul>
             <div className="pt-4">
-              <Button asChild size="lg" className="rounded-full font-bold">
-                <Link href="/contact">S'inscrire au Code</Link>
+              <Button asChild size="lg" className="rounded-full font-bold shadow-lg shadow-primary/20">
+                <Link href="/contact">S'inscrire en ligne</Link>
               </Button>
             </div>
           </div>
