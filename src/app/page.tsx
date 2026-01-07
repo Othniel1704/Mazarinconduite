@@ -14,11 +14,11 @@ export default function HomePage() {
       <div className="relative">
         <HeroSection
           title="MAZARIN CONDUITE & FORMATION"
-          subtitle="Auto école et centre de formation : au-delà de l'apprentissage, nous forgeons votre indépendance à Chilly-Mazarin."
+          subtitle="Votre auto-école à Chilly-Mazarin pour le permis de conduire, la conduite accompagnée et le code de la route. Forgez votre indépendance dès aujourd'hui."
           imageUrl="https://images.pexels.com/photos/7015865/pexels-photo-7015865.jpeg"
           imageAlt="Formation à la conduite"
-          ctaText="Découvrir nos formations"
-          ctaLink="/formations-tarifs"
+          ctaText="S'inscrire en ligne"
+          ctaLink="/contact"
         />
       </div>
 

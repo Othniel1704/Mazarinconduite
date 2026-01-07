@@ -95,7 +95,7 @@ const FormationsTarifsPage: React.FC = () => {
                         </CardContent>
                         <CardFooter className="px-8 pb-10">
                           <Button asChild className="w-full h-12 rounded-2xl font-bold group-hover:scale-105 transition-transform">
-                            <Link href={`/contact?course=${encodeURIComponent(course.title + " - " + pkg.title)}`}>Réserver</Link>
+                            <Link href={`/contact?course=${encodeURIComponent(course.title + " - " + pkg.title)}`}>S'inscrire en ligne</Link>
                           </Button>
                         </CardFooter>
                       </Card>

@@ -2,6 +2,8 @@ import React from 'react';
 import { HeroSection } from "@/components/ui/hero-section";
 import { SectionTitle } from "@/components/ui/section-title";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
@@ -28,10 +30,12 @@ const CodeDeLaRoutePage: React.FC = () => {
     <>
       <HeroSection
         title="Code de la Route"
-        subtitle="Préparez-vous efficacement à l'examen du code de la route"
-        imageUrl="https://images.pexels.com/photos/7015865/pexels-photo-7015865.jpeg"
+        subtitle="Formation théorique complète : maîtrisez le code de la route rapidement et réussissez votre examen du premier coup."
+        imageUrl="https://images.pexels.com/photos/314376/pexels-photo-314376.jpeg"
         imageAlt="Panneaux de signalisation"
         imageHint="traffic signs"
+        ctaText="S'inscrire au Code"
+        ctaLink="/contact"
       />
       <div className="container mx-auto px-4 py-12">
         <SectionTitle
@@ -96,6 +100,11 @@ const CodeDeLaRoutePage: React.FC = () => {
               <li>• Suivi personnalisé de votre progression</li>
               <li>• Correction détaillée de vos erreurs</li>
             </ul>
+            <div className="pt-4">
+              <Button asChild size="lg" className="rounded-full font-bold">
+                <Link href="/contact">S'inscrire au Code</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
